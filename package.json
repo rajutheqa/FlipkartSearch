@@ -1,0 +1,24 @@
+{
+  "name": "cypress-automation-flipkart",
+  "version": "1.0.0",
+  "description": "Automating Flipkart using Cypress Cucumber Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Narasimha Raju Naidu",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.10.0"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress-xpath": "^2.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step-definitions": "cypres/support/step_definitions/**/*.js"
+  }
+}
