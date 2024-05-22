@@ -1,24 +1,18 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import SearchPage from "../pageObject/searchPage.cy";
+import data from "../../fixtures/searchKey.json"
+ 
+let searchPage = new SearchPage()
 
 Given("I visited the Flipkart website", () => {
-  cy.visit("https://www.flipkart.com/");
+  searchPage.visitPage()
 });
 When("I enter mobile as search keyword", () => {
-  cy.get('[name="q"]').type("mobile");
+  searchPage.search(data.searchInputID, data.searchKey)
 });
 When("Start to type your And step here I submit the search", () => {
-  cy.get('[name="q"]').type("{enter}");
+  searchPage.hitKey(data.searchInputID, "enter")
 });
 Then("I list the mobiles under the price of 10000 and display the name of each mobile", () => {
-  var name = []
-  cy.get('[class="KzDlHZ"]').each(($elName, nameIndex, $listName) => {
-    name.push($elName.text())
-  })
-  cy.get('[class="Nx9bqj _4b5DiR"]').each(($elPrice, index, $list) => {
-      var price = $elPrice.text();
-      price = price.split("₹").join("").split(",").join("");
-      if (price < 10000) {
-        cy.log("Name of the mobile: "+name[index]+" and price: ₹"+price);
-    }
-  })
+  searchPage.findMobilePriceAndName(data.mobileNameClass, data.priceLimitClass, data.priceLimit)
 });
