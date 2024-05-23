@@ -1,3 +1,4 @@
+
 class SearchPage {
   visitPage() {
     cy.visit("/");

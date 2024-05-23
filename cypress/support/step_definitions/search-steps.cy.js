@@ -1,9 +1,8 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import {Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import SearchPage from "../pageObject/searchPage.cy";
 import data from "../../fixtures/searchKey.json"
  
 let searchPage = new SearchPage()
-
 Given("I visited the Flipkart website", () => {
   searchPage.visitPage()
 });
